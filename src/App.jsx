@@ -16,6 +16,8 @@ function App() {
   return (
       <div className='dark:bg-[#09090B] bg-white w-full min-h-screen flex flex-col items-center relative overflow-hidden'>
         <Navbar theme={theme} setTheme={setTheme} />
+
+        <Hero />
       </div>
   )
 }

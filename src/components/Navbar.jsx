@@ -1,7 +1,13 @@
 import React from 'react'
 import { Moon, Sun, Download, Paintbrush } from 'lucide-react'
+import GradientButton from './GradientButton';
+import Button from './Button';
 
 export default function Navbar({ theme, setTheme }) {
+  const downloadResume = () => {
+    // TO DO: complete the function to download resume
+  }
+
   const tabs = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
@@ -12,7 +18,7 @@ export default function Navbar({ theme, setTheme }) {
   return (
     <nav className='w-full h-18 dark:bg-[#111113]/10
     fixed top-0 left-0 flex items-center
-    justify-between px-8 lg:px-16
+    justify-between px-4 lg:px-8
     backdrop-blur-xl border-b border-white/5 
     shadow-[0_8px_30px_rgb(0,0,0,0.25)]'>
       <div className="flex-1">
@@ -44,46 +50,13 @@ export default function Navbar({ theme, setTheme }) {
       </div>
 
         {/* {right buttons} */}
-      <div className="flex flex-1 justify-end items-center gap-8">
+      <div className="flex flex-1 justify-end items-center gap-4">
 
-      <button
-        className="
-        w-11 h-11 rounded-full
-        bg-[#111113]/80 backdrop-blur-xl
-        border border-zinc-800
-        flex items-center justify-center
-      text-zinc-300
-        transition-all duration-300
-      hover:bg-[#18181B]
-      hover:border-violet-500/40
-      hover:text-white cursor-pointer
-       "
-       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-       >
-        {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
-      </button>
+      <Button Icon={theme === "dark" ? Sun: Moon}
+      btnFunction={() => setTheme(theme === "dark" ? "light" : "dark")} />
 
-  <button
-    className="
-      px-5 py-2
-      rounded-2xl
-      bg-linear-to-r
-      from-violet-500
-      to-violet-600
-      text-white
-      text-md
-      font-medium
-      flex items-center
-      gap-3
-      shadow-[0_0_40px_rgba(139,92,246,0.35)]
-      transition-all duration-300
-      hover:scale-[1.02]
-      hover:shadow-[0_0_55px_rgba(139,92,246,0.5)]
-    "
-  >
-    Resume
-    <Download size={18} />
-  </button>
+    <GradientButton Icon={Download} text="Resume"
+    btnFunction ={downloadResume} />
 
 </div>
 
